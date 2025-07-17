@@ -8,8 +8,7 @@ const schema = z.object({
   country: z.string().min(1, "Country is required"),
   phone: z
     .string()
-    .min(8, "Phone number is too short")
-    .max(15, "Phone number is too long"),
+    .length(10, "Phone number must be exactly 10 digits"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -89,8 +88,14 @@ export default function PhoneInputForm({ onSuccess }: Props) {
         <input
           {...register("phone")}
           type="tel"
+          inputMode="numeric"
+          pattern="[0-9]*"
           placeholder="Enter phone number"
           className="mt-1 block w-full rounded border border-gray-300 dark:border-gray-600 px-3 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
+          onInput={(e) => {
+            // @ts-ignore
+            e.target.value = e.target.value.replace(/[^0-9]/g, "");
+          }}
         />
         {errors.phone && (
           <span className="text-red-500 text-xs">{errors.phone.message}</span>
