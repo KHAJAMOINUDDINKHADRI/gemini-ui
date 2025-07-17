@@ -10,7 +10,7 @@ export default function AuthPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="w-full max-w-md p-6 bg-white dark:bg-gray-900 rounded shadow">
+      <div className="w-full max-w-md p-6 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-xl">
         {step === "phone" ? (
           <PhoneInputForm
             onSuccess={(phone, country) => {

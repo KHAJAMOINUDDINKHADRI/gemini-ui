@@ -54,12 +54,16 @@ export default function PhoneInputForm({ onSuccess }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      <h2 className="text-2xl font-bold mb-2">Login / Signup</h2>
-      <label className="block">
-        <span className="text-sm font-medium">Country</span>
+      <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
+        Login / Signup
+      </h2>
+      <label className="block text-gray-900 dark:text-white">
+        <span className="text-sm font-medium text-gray-900 dark:text-white">
+          Country
+        </span>
         <select
           {...register("country")}
-          className="mt-1 block w-full rounded border px-3 py-2 bg-gray-50 dark:bg-gray-800"
+          className="mt-1 block w-full rounded border border-gray-300 dark:border-gray-600 px-3 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
           disabled={loading}
         >
           <option value="">Select country</option>
@@ -78,13 +82,15 @@ export default function PhoneInputForm({ onSuccess }: Props) {
           <span className="text-red-500 text-xs">{errors.country.message}</span>
         )}
       </label>
-      <label className="block">
-        <span className="text-sm font-medium">Phone Number</span>
+      <label className="block text-gray-900 dark:text-white">
+        <span className="text-sm font-medium text-gray-900 dark:text-white">
+          Phone Number
+        </span>
         <input
           {...register("phone")}
           type="tel"
           placeholder="Enter phone number"
-          className="mt-1 block w-full rounded border px-3 py-2 bg-gray-50 dark:bg-gray-800"
+          className="mt-1 block w-full rounded border border-gray-300 dark:border-gray-600 px-3 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
         />
         {errors.phone && (
           <span className="text-red-500 text-xs">{errors.phone.message}</span>

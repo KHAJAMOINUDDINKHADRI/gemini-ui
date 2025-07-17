@@ -56,14 +56,14 @@ export default function OtpInputForm({ phone, country, onBack }: Props) {
       <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
         {sent ? `OTP sent to ${country} ${phone}` : "Sending OTP..."}
       </p>
-      <label className="block">
+      <label className="block text-gray-900 dark:text-white">
         <span className="text-sm font-medium">OTP</span>
         <input
           {...register("otp")}
           type="text"
           inputMode="numeric"
           maxLength={6}
-          className="mt-1 block w-full rounded border px-3 py-2 bg-gray-50 dark:bg-gray-800 tracking-widest text-center text-lg"
+          className="mt-1 block w-full rounded border border-gray-300 dark:border-gray-600 px-3 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white tracking-widest text-center text-lg"
           disabled={loading || !sent}
         />
         {errors.otp && (

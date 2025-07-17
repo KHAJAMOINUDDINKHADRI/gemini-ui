@@ -4,7 +4,7 @@ A modern, Gemini-style conversational AI chat application built with Next.js 15,
 
 ## 🚀 Live Demo
 
-[Live site on Vercel](https://your-vercel-deployment-url)
+[Live site on Netlify](https://gemini-ui-kmk.netlify.app/)
 
 ## ✨ Features
 
@@ -31,7 +31,7 @@ A modern, Gemini-style conversational AI chat application built with Next.js 15,
 - **Form Validation:** React Hook Form + Zod
 - **Styling:** Tailwind CSS
 - **Image Upload:** Base64/local preview
-- **Deployment:** Vercel
+- **Deployment:** Netlify
 
 ## 📁 Folder Structure
 
