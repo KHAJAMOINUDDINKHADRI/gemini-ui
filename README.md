@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gemini Frontend Clone
 
-## Getting Started
+A modern, Gemini-style conversational AI chat application built with Next.js 15, React Hook Form, Zod, and Tailwind CSS.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+[Live site on Vercel](https://your-vercel-deployment-url)
+
+## ✨ Features
+
+- OTP-based authentication (with country code selection, simulated OTP)
+- Dashboard with chatroom management (create, delete, search, toast notifications)
+- Gemini-style chat UI:
+  - User and simulated AI messages
+  - Timestamps, typing indicator, fake AI reply with throttling
+  - Reverse infinite scroll (load older messages, client-side pagination)
+  - Image upload (base64 preview)
+  - Copy-to-clipboard on message hover
+  - Loading skeletons for chat messages
+- Global UX:
+  - Mobile responsive design
+  - System-based dark mode (auto, no toggle)
+  - Debounced search bar for chatrooms
+  - All data persisted in localStorage
+  - Keyboard accessibility
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **State Management:** React useState/useEffect, localStorage
+- **Form Validation:** React Hook Form + Zod
+- **Styling:** Tailwind CSS
+- **Image Upload:** Base64/local preview
+- **Deployment:** Vercel
+
+## 📁 Folder Structure
+
+```
+/ (root)
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx         # App layout, header, theme
+│   │   ├── page.tsx           # Root redirect logic
+│   │   ├── dashboard/
+│   │   │   ├── layout.tsx     # Dashboard sidebar + main area
+│   │   │   ├── page.tsx       # Dashboard welcome
+│   │   │   └── chatroom/[id]/ # Chatroom UI (dynamic route)
+│   │   └── auth/              # Auth pages (OTP, phone input)
+│   ├── components/            # Reusable UI components
+│   └── ...
+├── public/                    # Static assets
+├── tailwind.config.mjs        # Tailwind config (darkMode: 'class')
+├── postcss.config.mjs         # PostCSS config
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧩 Implementation Notes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Throttling & AI Simulation:**
+  - AI replies are simulated with `setTimeout` and a typing indicator.
+  - Throttling ensures a delay between user message and AI response.
+- **Pagination & Infinite Scroll:**
+  - Messages are paginated (20 per page) and loaded in reverse (oldest first) with a "Load older messages" button.
+- **Form Validation:**
+  - All forms use React Hook Form + Zod for robust validation (phone, OTP, chatroom title).
+- **Dark Mode:**
+  - Uses Tailwind's `dark:` classes and system preference (no toggle).
+- **State Management:**
+  - All state is managed with React hooks and persisted in localStorage for a simple, client-only experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Setup & Run Instructions
 
-## Learn More
+1. **Install dependencies:**
+   ```bash
+   npm install
+   # or yarn install
+   ```
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   # or yarn dev
+   ```
+3. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
 
-To learn more about Next.js, take a look at the following resources:
+## 📚 Learn More
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs/dark-mode)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
