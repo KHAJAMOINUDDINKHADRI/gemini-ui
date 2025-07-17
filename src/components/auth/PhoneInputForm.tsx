@@ -91,7 +91,7 @@ export default function PhoneInputForm({ onSuccess }: Props) {
           placeholder="Enter phone number"
           className="mt-1 block w-full rounded border border-gray-300 dark:border-gray-600 px-3 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
           onInput={(e) => {
-            // @ts-expect-error
+            // @ts-expect-error Only numeric input is allowed for phone number field
             e.target.value = e.target.value.replace(/[^0-9]/g, "");
           }}
         />
